@@ -66,5 +66,8 @@ arquivos = filter_arqs(list(df.columns)); # Aqui eu especifiquei a pasta com os 
 for arquivo in arquivos:
     df = load_new_votos(df, arquivo);   # Aqui eu especifiquei a pasta com os txts (mas se tiver na raiz nao precisa)
 
+
+df = df.sort_index(ascending=False, axis=1)
+df = df.sort_values(by='nome')
 df.to_csv('saojoao.csv', sep= ';', index=False)
 
